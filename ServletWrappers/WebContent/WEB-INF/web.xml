@@ -1,0 +1,16 @@
+<web-app>
+
+	<servlet>
+		<servlet-name>logintest</servlet-name>
+		<servlet-class>com.fa.servlet.LoginServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>logintest</servlet-name>
+		<url-pattern>/faizan</url-pattern>
+	</servlet-mapping>
+
+<welcome-file-list>
+	<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
