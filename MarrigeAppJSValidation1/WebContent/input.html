@@ -1,0 +1,69 @@
+<h1 style="color: red; text-align: center;">Check Marrige Elgibility</h1>
+
+<script type="text/javascript">
+	function formValidation(frm) {
+		//read form data
+		let name = frm.pname.value;
+		let age = frm.page.value;
+		let flag = true;
+		//empty validation Error Message
+		document.getElementById("nameErr").innerHTML="";
+		document.getElementById("ageErr").innerHTML="";
+		
+		//write client side form validation logic
+		if (name == "") {
+			document.getElementById("nameErr").innerHTML=	"Person Name is required";
+			flag = false;
+		} else if (name.length<5 || name.length>15) {
+			document.getElementById("nameErr").innerHTML=	"name must have min of 5 chars and max of 15 chars";
+			frm.pname.focus();
+			frm.pname.value="";
+			flag = false;
+		}
+		if (age == "") {
+			document.getElementById("ageErr").innerHTML=	"person age is required";
+			flag = false;
+		} 
+		
+		else if(isNaN(age)){
+			document.getElementById("ageErr").innerHTML=	"Person age Should be Numeric value only";
+			flag=false;
+			
+		}
+		else if (age<1 || age>125) {
+			document.getElementById("ageErr").innerHTML=	"Person age must be there 1 through 125";
+			frm.page.focus();
+			frm.page.value="";
+			flag = false;
+		}
+		return flag;
+	}//function
+</script>
+<center>
+	<img src="images/marriage.jpg" width="600" height="300"/>
+</center>
+<br>
+
+<form action="marriageurl" method="POST" onsubmit="return formValidation(this)" >
+	<table border="0px" bgcolor="gray" align="center">
+		<tr>
+			<td>Enter Your Name  <span style="color:red"> * </span></td>
+			<td><input type="text" name="pname" /> <span id="nameErr" style="color:red"></span></td>
+		</tr>
+
+		<tr>
+			<td>Enter Your Age <span style="color:red"> * </span></td>
+			<td><input type="text" name="page" /> <span id="ageErr" style="color:red"></span></td>
+		</tr>
+		<tr>
+			<td>Select Gender</td>
+			<td><input type="radio" name="gender" value="M" checked />Male <input
+				type="radio" name="gender" value="F" />FeMale</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Check elgibility for marrige"></td>
+			<td><input type="reset" value="reset"></td>
+		</tr>
+	</table>
+</form>
+
